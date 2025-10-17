@@ -59,6 +59,12 @@ To configure it locally:
 
 Once configured, the `/signin` page will authenticate with Cognito (including Google federated sign-in when enabled) and the `/post-a-job` flow will require users to have an active Cognito session before they can submit the form.
 
+## Despliegue con AWS Amplify
+
+AWS Amplify elige automáticamente **pnpm** cuando detecta un `pnpm-lock.yaml`. Como el repositorio incluye dependencias nuevas para Cognito y las pruebas unitarias, el comando predeterminado `pnpm install --frozen-lockfile` puede fallar si el archivo de bloqueo no se actualiza en el mismo commit. Para evitarlo, el proyecto incluye un archivo `amplify.yml` que fuerza el uso de `npm install` durante la fase de _preBuild_. Amplify actualizará el `package-lock.json` y descargará las dependencias necesarias antes de ejecutar `npm run build`.
+
+Si necesitas personalizar el proceso (por ejemplo, ejecutar pruebas o linters en la fase de _build_), edita `amplify.yml` y agrega los comandos adicionales en la sección `frontend.phases`.
+
 ## Integración con un backend NestJS + GraphQL
 
 El formulario de **Post a job** envía la información al endpoint definido en `NEXT_PUBLIC_GRAPHQL_ENDPOINT`. Se espera que este endpoint sea provisto por un backend construido con [NestJS](https://docs.nestjs.com/) y su módulo de [GraphQL](https://docs.nestjs.com/graphql/quick-start) exponiendo una mutación parecida a:
