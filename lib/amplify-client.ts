@@ -44,10 +44,7 @@ export const configureAmplify = () => {
         },
       },
       ssr: true,
-    },
-    {
-      ssr: true,
-    }
+    } as any
   )
 
   isConfigured = true

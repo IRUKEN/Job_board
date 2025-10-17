@@ -25,9 +25,9 @@ const describeNextStep = (nextStep: SignInStep | null) => {
       return 'Enter the code from your authenticator application to finish signing in.'
     case 'CONFIRM_SIGN_IN_WITH_EMAIL_CODE':
       return 'Check your inbox for a verification code to complete the sign-in process.'
-    case 'CONTINUE_SIGN_IN_WITH_EMAIL_CODE':
-      return 'Check your email for a confirmation code to continue.'
-    case 'CONFIRM_SIGN_IN_WITH_NEW_PASSWORD':
+    case 'CONTINUE_SIGN_IN_WITH_MFA_SELECTION':
+      return 'Select a multi-factor authentication method to continue.'
+    case 'CONFIRM_SIGN_IN_WITH_NEW_PASSWORD_REQUIRED':
       return 'You must set a new password before you can sign in.'
     case 'CONFIRM_SIGN_IN_WITH_CUSTOM_CHALLENGE':
       return 'Complete the configured custom challenge to sign in.'
