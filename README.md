@@ -20,7 +20,7 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+This project loads the Inter and Nothing You Could Do Google Fonts via standard `<link>` tags defined in `app/layout.tsx`, which avoids build-time fetch failures in environments without outbound internet access.
 
 ## Learn More
 
